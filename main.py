@@ -107,7 +107,7 @@ async def search_guardian(call: FunctionCall, request: Request):
         params["order-by"] = args.orderBy
 
     # Fetch from The Guardian (async)
-    async with httpx.AsyncClient(timeout=15) as client:
+    async with httpx.AsyncClient(timeout=150) as client:
         resp = await client.get(base_url, params=params)
 
     if resp.status_code != 200:
